@@ -16,7 +16,24 @@ public class DesignTacoController {
     @GetMapping
     public String showDesignTacoController(Model model) {
         List<Ingredient> ingredients = Arrays.asList(
-                new
-        )
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient ("FLTO", "Flour Tortilla", Type.WRAP)
+        );
+
+        Type [] types = Ingredient.Type.values();
+        for ( Type types: types) {
+            model.addAttribute(type.ToString().toLowerCase().filterByType (ingredients, type));
+        }
+        model.addAttribute("design", new Taco());
+        return "design";
+
     }
 }
